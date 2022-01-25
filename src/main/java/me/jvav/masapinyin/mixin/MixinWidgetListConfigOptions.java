@@ -2,7 +2,6 @@ package me.jvav.masapinyin.mixin;
 
 import com.google.common.collect.ImmutableList;
 import me.jvav.masapinyin.WidgetUtil;
-import com.oott123.rechars.helpers.MatchHelper;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigResettable;
 import fi.dy.masa.malilib.gui.GuiConfigsBase;
@@ -70,22 +69,6 @@ public abstract class MixinWidgetListConfigOptions extends WidgetListConfigOptio
                 return true;
             }
         }
-        return false;
-    }
-
-    @Override
-    protected boolean matchesFilter(String entryString, String filterText) {
-        filterText = filterText.toLowerCase();
-        if (filterText.isEmpty()) {
-            return true;
-        }
-
-        for (String filter : filterText.split("\\|")) {
-            if (MatchHelper.contains(entryString, filter)) {
-                return true;
-            }
-        }
-
         return false;
     }
 }
